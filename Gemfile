@@ -59,3 +59,9 @@ gem 'bootstrap', '4.0.0.alpha6'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
+
+# Now for simpleform
+gem 'simple_form'
+
+# Let's use devise to handle the users
+gem 'devise'
