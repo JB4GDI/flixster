@@ -74,3 +74,6 @@ gem "figaro"
 
 # Because we need to connect to AWS, we need this fog gem
 gem "fog-aws"
+
+# Minimagick will allow us to use imagemagick with a small memory footprint, to resize our course images
+gem "mini_magick"
