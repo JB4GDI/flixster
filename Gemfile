@@ -65,3 +65,12 @@ gem 'simple_form'
 
 # Let's use devise to handle the users
 gem 'devise'
+
+# We will need carrierwave for image and video uploading
+gem 'carrierwave', '~> 1.0'
+
+# Use figaro to keep your secret API keys and stuff secret
+gem "figaro"
+
+# Because we need to connect to AWS, we need this fog gem
+gem "fog-aws"
