@@ -77,3 +77,6 @@ gem "fog-aws"
 
 # Minimagick will allow us to use imagemagick with a small memory footprint, to resize our course images
 gem "mini_magick"
+
+# OK, so carrierwave chokes on big videos when using AWS, so this gem fixes that.
+gem 'carrierwave-aws'
