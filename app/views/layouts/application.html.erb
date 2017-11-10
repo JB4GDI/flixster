@@ -6,6 +6,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Required for videoJS -->
+    <link href="http://vjs.zencdn.net/5.12.6/video-js.css" rel="stylesheet">
   </head>
 
   <body>
@@ -73,6 +76,12 @@
       </div>
     </div>
 
+    <!-- 
+      Required for videoJS 
+      NOTE:  These need to be at the bottom of the body, or we will have issues loading the video player due to Turbolinks
+    -->
+    <script src="http://vjs.zencdn.net/5.12.6/video.js"></script>
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 
   </body>
 </html>
