@@ -19,6 +19,22 @@
         <br />
         <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
       <% end %>
+
+      <br />
+      <br />
+
+      <% if current_user && current_user.enrolled_in?(@course) %>
+        <h3 class="badge badge-info">You are enrolled!</h3>
+      <% else %>
+
+        <!--  Links default to trigger GET requests to the URLs that they link to. This is because links typically support the ability to view another page, and we usually don't want to indicate that we expect the state of the server to change. In this case, our link should act more like a form submission than a link to just view the page. This is because we are triggering the create action, and we expect it to push an item into our database. The line in our routes table tells us the create action can only be triggered by the POST HTTP verb.-->
+        <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
+        
+      <% end %>
+
+
+      
+
     </div>
 
     <div class="col-sm-8 col-12">
@@ -29,22 +45,39 @@
 
   <div class="col-12">
     <% @course.sections.each do |section| %>
+
+      <br /><br />
+
       <div class="section">
-        <%= section.title %>
 
-        <% section.lessons.each do |lesson| %>
+        <h3>
+          <%= section.title %>
+        </h3>
 
-          <div class="lesson">
+        <div class="row">
 
-            <%= link_to lesson_path(lesson) do %>
-              <b><%=  lesson.title %></b>
-              -
-              <%= lesson.subtitle %>
-            <% end %>
+          <% section.lessons.each do |lesson| %>
 
-          </div>
+            <div class="col-12 col-sm-6">
+              <div class="lesson text-center">
 
-        <% end %>
+                <br />
+
+                <%= link_to lesson_path(lesson) do %>
+                  <b><%=  lesson.title %></b>
+                  <br />
+                  <%= lesson.subtitle %>
+                <% end %>
+
+              </div>
+            </div>
+
+          <% end %>
+
+        </div>
+
+        <!-- Clear so we don't have weird overlaps -->
+        <br class="clr" />
 
       </div>
     <% end %>
